@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use App\Http\Requests\CrudePostRequest;
+
 use Illuminate\Support\Facades\DB;
 
 class CrudController extends Controller
@@ -28,12 +30,12 @@ class CrudController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CrudePostRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'firstname' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'firstname' => 'required',
+        // ]);
         DB::table('cruds')->insert([
             'name' => $request->name,
             'firstname' => $request->firstname
