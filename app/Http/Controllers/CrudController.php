@@ -30,6 +30,10 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'firstname' => 'required',
+        ]);
         DB::table('cruds')->insert([
             'name' => $request->name,
             'firstname' => $request->firstname
